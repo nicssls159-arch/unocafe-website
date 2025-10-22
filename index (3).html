@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu | UNO Café</title>
+  <link rel="icon" href="coffee.png" type="image/x-icon">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+  <style>
+    /* ===== BASIC STYLES ===== */
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      background-color: #fffaf5;
+      color: #3e2723;
+    }
+
+    /* ===== NAVBAR ===== */
+    header {
+      background-color: black;
+      color: #fff;
+      padding: 1rem 2rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-section img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffcc80;
+    }
+
+    /* ===== MENU PAGE ===== */
+    .menu-page {
+      padding-top: 8rem; /* space for fixed nav */
+      text-align: center;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .menu-header h2 {
+      font-size: 2.5rem;
+      color: #6f4e37;
+    }
+
+    .menu-header p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      color: #5d4037;
+    }
+
+    /* ===== MENU ROWS ===== */
+    .menu-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      margin: 4rem 0;
+      flex-wrap: wrap;
+    }
+
+    /* ✅ FIX: Show full image (not cut) */
+    .menu-image {
+      width: 40%;
+      max-width: 450px;
+      border-radius: 15px;
+      object-fit: contain; /* no cropping */
+      background-color: #fff;
+      padding: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .menu-card-content {
+      width: 45%;
+      text-align: left;
+    }
+
+    .menu-card-content h3 {
+      font-size: 2rem;
+      color: #4e342e;
+      margin-bottom: 1rem;
+    }
+
+    .menu-card-content ul {
+      list-style: none;
+      padding: 0;
+      font-size: 1.1rem;
+    }
+
+    .menu-card-content li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Reverse layout for alternating rows */
+    .menu-row.reverse {
+      flex-direction: row-reverse;
+    }
+
+    /* ===== MENU GRID (Pasta, Sandwich, Rice Meal) ===== */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 5rem;
+    }
+
+    .menu-box {
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .menu-box:hover {
+      transform: translateY(-5px);
+    }
+
+    .menu-box h3 {
+      font-size: 1.8rem;
+      color: #6f4e37;
+      margin-bottom: 1rem;
+    }
+
+    .menu-box ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      color: #4e342e;
+    }
+
+    .menu-box li {
+      margin: 5px 0;
+      font-size: 1rem;
+    }
+
+    .menu-box img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 10px;
+      margin-top: 1rem;
+      background-color: #fff;
+      padding: 10px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background-color: #6f4e37;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 4rem;
+      font-size: 0.9rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .menu-row {
+        flex-direction: column;
+      }
+
+      .menu-image, .menu-card-content {
+        width: 100%;
+        text-align: center;
+      }
+
+      .menu-card-content {
+        margin-top: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="header-content">
+      <div class="logo-section">
+        <img src="logoo.jpg" alt="UNO Café Logo">
+        <h1>UNO Café</h1>
+      </div>
+      <nav>
+        <a href="about.html">Home</a>
+        <a href="menu.html">Menu</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="menu-page">
+    <div class="menu-header">
+      <h2>Our Menu</h2>
+      <p>Discover our handcrafted drinks and meals — made fresh daily with love.</p>
+    </div>
+
+    <!-- ☕ Coffee Drinks (Image LEFT, Text RIGHT, Full image) -->
+    <div class="menu-row">
+      <img src="coffee_based.png" alt="Coffee Drinks" class="menu-image">
+      <div class="menu-card-content">
+        <h3>Coffee Drinks</h3>
+        <ul>
+          <li>Iced Americano</li>
+          <li>Spanish Latte</li>
+          <li>Caramel Latte</li>
+          <li>Vanilla Latte</li>
+          <li>Mocha Latte</li>
+          <li>Hazelnut Latte</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 🍓 Non-Coffee Drinks (Image RIGHT, Text LEFT, Full image) -->
+    <div class="menu-row reverse">
+      <img src="non-coffee_baseed.png" alt="Non-Coffee Drinks" class="menu-image">
+      <div class="menu-card-content">
+        <h3>Non-Coffee Drinks</h3>
+        <ul>
+          <li>Strawberry Milk</li>
+          <li>Mango Milk</li>
+          <li>Winter Melon Milk Tea</li>
+          <li>Strawberry Soda</li>
+          <li>Choco-Strawberry Milk</li>
+          <li>Matcha Latte</li>
+          <li>Matcha Strawberry</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 🍝 Food Grid Section -->
+    <div class="menu-grid">
+      <div class="menu-box">
+        <h3>Pasta</h3>
+        <ul>
+          <li>Carbonara</li>
+          <li>Spaghetti</li>
+          <li>Tomato Herb Pasta</li>
+          <li>Baked Mac</li>
+        </ul>
+        <img src="pst.png" alt="Pasta">
+      </div>
+
+      <div class="menu-box">
+        <h3>Sandwich</h3>
+        <ul>
+          <li>Ham and Cheese</li>
+          <li>Grilled Cheese</li>
+          <li>Cheeseburger with Fries</li>
+        </ul>
+        <img src="sndwch.png" alt="Sandwich">
+      </div>
+
+      <div class="menu-box">
+        <h3>Rice Meal</h3>
+        <ul>
+          <li>Burger Steak</li>
+          <li>Homemade Spam</li>
+          <li>Hotdog</li>
+          <li>Longanisa</li>
+          <li>Shanghai</li>
+          <li>Siomai</li>
+          <li>Fried Chicken</li>
+          <li>Fries (Large)</li>
+          <li>Fries (Solo)</li>
+          <li>Cheese Stick</li>
+        </ul>
+        <img src="riceml.png" alt="Rice Meal">
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Developed by SLS.NC | © UNO Café 2025 — All Rights Reserved</p>
+  </footer>
+</body>
+</html>
